@@ -19,7 +19,7 @@ function validateLogin() {
     }
 
     // Your validation logic
-    if (accountNumber === '5500987152' && password === '100010') {
+    if (accountNumber === '5500987152' && password === '1000101') {
         // Correct credentials, redirect to index.html
         window.location.href = 'bankpage.html';
     } else {
