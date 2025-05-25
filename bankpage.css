@@ -3,30 +3,25 @@ body {
     background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.login-card {
-    max-width: 500px;
-    margin: 100px auto;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+
+.navbar-nav{
+  font-family:'Oxygen',sans-serif;
+  text-decoration:white;
+  font-weight: bold;
 }
-.ad-banner {
-    text-align: center;
-    margin-top: 20px;
+#nav-bar
+{
+	background-color:#c5d7bd;
+	position:static;
+	top:0;
+	z-index:10;
 }
-.ad-banner img {
-    max-width: 100%;
-    border-radius: 10px;
+.nav-link:hover {
+	background-image: url('C:\Users\hp\Desktop\banking-system-main\IMG_15022021_130857_(1600_x_600_pixel) (2).jpg');
 }
-.bank-brand {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 700;
-    color: #0d6efd;
-    margin-bottom: 20px;
+.nav-link {
+	font-family:'Oxygen',sans-serif;
 }
-.form-control:focus {
-    box-shadow: none;
-    border-color: #0d6efd;
+a{
+	color:white;
 }

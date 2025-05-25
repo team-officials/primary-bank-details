@@ -1,166 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sidebar With Bootstrap</title>
-    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="bankpage.css" />
-    <script src="path/to/chartjs/dist/chart.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Secure Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
-      integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-  </head>
+    body {
+      background-color: #f4f8fb;
+      color: #333;
+    }
 
-  <body>
-    <div class="wrapper d-flex">
-      <aside id="sidebar">
-        <div class="d-flex">
-          <button class="toggle-btn" type="button">
-            <i class="lni lni-grid-alt"></i>
-          </button>
-          <div class="sidebar-logo">
-            <a href="#">Internet Banking</a>
-          </div>
-        </div>
-        <ul class="sidebar-nav">
-          <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-              <i class="lni lni-user"></i>
-              <span>Profile</span>
-            </a>
-          </li>
-          <li class="sidebar-item">
-            <a
-              href="#"
-              class="sidebar-link collapsed has-dropdown"
-              data-bs-toggle="collapse"
-              data-bs-target="#multi"
-              aria-expanded="false"
-              aria-controls="multi"
-            >
-              <i class="lni lni-layout"></i>
-              <span>Multi Level</span>
-            </a>
-            <ul
-              id="multi"
-              class="sidebar-dropdown list-unstyled collapse"
-              data-bs-parent="#sidebar"
-            >
-              <li class="sidebar-item">
-                <a
-                  href="#"
-                  class="sidebar-link collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#multi-two"
-                  aria-expanded="false"
-                  aria-controls="multi-two"
-                >
-                  Two Links
-                </a>
-                <ul
-                  id="multi-two"
-                  class="sidebar-dropdown list-unstyled collapse"
-                >
-                  <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Link 1</a>
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Link 2</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-              <i class="lni lni-popup"> </i>
-              <span>Notification</span>
-            </a>
-          </li>
-          <li class="sidebar-item">
-            <a
-              href="#"
-              class="sidebar-link collapsed has-dropdown"
-              data-bs-toggle="collapse"
-              data-bs-target="#settingsDropdown"
-              aria-expanded="false"
-              aria-controls="settingsDropdown"
-            >
-              <i class="lni lni-cog"></i>
-              <span>Setting</span>
-            </a>
-            <ul
-              id="settingsDropdown"
-              class="sidebar-dropdown list-unstyled collapse"
-              data-bs-parent="#sidebar"
-            >
-              <!-- Replace this setting option with Logout -->
-              <li class="sidebar-item">
-                <a href="index.html" id="logout-link" class="sidebar-link"
-                  >Logout</a
-                >
-              </li>
-              <!-- Add more settings options as needed -->
-            </ul>
-          </li>
-        </ul>
-      </aside>
-      <div class="main p-3">
-        <div class="text-center">
-          <h1 class="text-white">Jeffrey Macias</h1>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card">
-              <div class="card-body">
-                <p class="card-text">FULL NAME: Jeffrey Macias</p>
-                <h5 class="card-title">ACCOUNT NUMBER: 5500987152</h5>
-                <h5 class="card-title">ACCOUNT BALANCE: $78,843,400,010</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Send Funds to others</h5>
-                <label for="receiverNumber" class="form-label"
-                  >Receiver Number</label
-                >
-                <input type="tel" id="receiverNum" class="form-control" />
-                <label for="inputPassword5" class="form-label">Amount</label>
-                <input
-                  type="password"
-                  id="inputPassword5"
-                  class="form-control"
-                  aria-describedby="passwordHelpBlock"
-                />
-                <a href="#" class="btn btn-primary">Transfer</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <canvas id="myPieChart" width="100" height="100"></canvas>
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .navbar {
+      background-color: #004481;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .navbar ul li {
+      margin-left: 20px;
+    }
+
+    .navbar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      display: none;
+      max-width: 960px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .active-section {
+      display: block;
+    }
+
+    .header {
+      background-color: #004481;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .profile img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .profile-info h2 {
+      font-weight: 600;
+    }
+
+    .account-summary {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      background-color: #f0f4f8;
+      flex-wrap: wrap;
+    }
+
+    .account-box {
+      background: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      margin: 10px;
+      width: 200px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.2s ease;
+      font-weight: 600;
+    }
+
+    .account-box:hover {
+      transform: scale(1.05);
+    }
+
+    .transactions, .transfer-form, .support-form {
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .debit {
+      color: red;
+      font-weight: bold;
+    }
+
+    .credit {
+      color: green;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .graph-section {
+      padding: 20px;
+    }
+
+    canvas {
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    form input, form select, form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      padding: 10px 20px;
+      background-color: #004481;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #004481;
+      color: white;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar ul {
+        display: none;
+      }
+
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .account-summary {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">My Secure Bank</div>
+    <ul>
+      <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+      <li><a href="#" onclick="showSection('accounts')">Accounts</a></li>
+      <li><a href="#" onclick="showSection('transfers')">Transfers</a></li>
+      <li><a href="#" onclick="showSection('support')">Support</a></li>
+    </ul>
+  </nav>
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="section active-section">
+    <div class="header">
+      <h1>Welcome Olivia</h1>
+    </div>
+    <div class="profile">
+      <img src="/image/43e9e0aa-bda5-44e5-85e3-485dd9474965.jpeg" alt="Customer Photo" />
+      <div class="profile-info">
+        <h2>Olivia Marie Scott</h2>
+        <p>ID: 456789123</p>
+        <p>Email: oliviamariescott45@gmail.com</p>
       </div>
     </div>
+    <div class="account-summary">
+      <div class="account-box"><h3>Checking</h3><p class="credit">$105,430.00</p></div>
+      <div class="account-box"><h3>Savings</h3><p class="credit">$122,200.00</p></div>
+      <div class="account-box"><h3>Credit</h3><p class="credit">$25,000.00</p></div>
+    </div>
+    <div class="graph-section">
+      <h3>Monthly Spending</h3>
+      <canvas id="spendingChart" width="600" height="300"></canvas>
+    </div>
+    <div class="transactions">
+      <h3>Recent Transactions</h3>
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Description</th><th>Amount</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2025-05-24</td><td>Luxury Car Purchase</td><td class="debit">-$35,000.00</td></tr>
+          <tr><td>2025-05-23</td><td>Home Renovation</td><td class="debit">-$28,750.00</td></tr>
+          <tr><td>2025-05-22</td><td>Business Investment</td><td class="debit">-$20,000.00</td></tr>
+          <tr><td>2025-05-20</td><td>Direct Deposit</td><td class="credit">+$50,000.00</td></tr>
+          <tr><td>2025-05-18</td><td>Stock Purchase</td><td class="debit">-$22,000.00</td></tr>
+          <tr><td>2025-05-16</td><td>Online Shopping</td><td class="debit">-$2,500.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
-    <script src="index.js"></script>
-  </body>
+  <!-- Accounts Page -->
+  <div id="accounts" class="section">
+    <h2>Account Details</h2>
+    <p><strong>Checking:</strong> Active — $105,430.00</p>
+    <p><strong>Savings:</strong> Active — $122,200.00</p>
+    <p><strong>Credit Card:</strong> Available Credit — $25,000.00</p>
+  </div>
+
+  <!-- Transfers Page -->
+  <div id="transfers" class="section">
+    <h2>Make a Transfer</h2>
+    <form class="transfer-form">
+      <label>From Account:</label>
+      <select>
+        <option>Checking</option>
+        <option>Savings</option>
+      </select>
+      <label>To Account:</label>
+      <input type="text" placeholder="Recipient ID or Name" />
+      <label>Amount:</label>
+      <input type="number" placeholder="$0.00" />
+      <button type="submit">Submit Transfer</button>
+    </form>
+  </div>
+
+  <!-- Support Page -->
+  <div id="support" class="section">
+    <h2>Customer Support</h2>
+    <form class="support-form">
+      <label>Subject:</label>
+      <input type="text" placeholder="Enter your issue subject" />
+      <label>Message:</label>
+      <textarea rows="5" placeholder="Describe your issue here..."></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 My Secure Bank. All rights reserved.
+  </footer>
+
+  <!-- JavaScript for navigation and chart -->
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section =>
+        section.classList.remove('active-section')
+      );
+      document.getElementById(id).classList.add('active-section');
+    }
+
+    // Chart.js bar chart
+    const ctx = document.getElementById('spendingChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+          label: 'Spending',
+          data: [15000, 22000, 18000, 25000, 21000],
+          backgroundColor: '#004481'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              callback: value => `$${value}`
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
 </html>
