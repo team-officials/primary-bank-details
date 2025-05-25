@@ -1,30 +1,34 @@
-function validateLogin() {
-  const accountNumber = document.getElementById('accountNumber').value.trim();
-  const password = document.getElementById('password').value.trim();
-  const errorAccount = document.getElementById('errorAccount');
-  const errorPassword = document.getElementById('errorPassword');
+ function validateLogin() {
+    const account = document.getElementById('accountNumber').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const errorAccount = document.getElementById('errorAccount');
+    const errorPassword = document.getElementById('errorPassword');
 
-  errorAccount.textContent = '';
-  errorPassword.textContent = '';
+    errorAccount.textContent = '';
+    errorPassword.textContent = '';
 
-  if (!accountNumber) {
-    errorAccount.textContent = 'Account number is required.';
-    return;
+    let valid = true;
+
+    if (account.length < 8 || isNaN(account)) {
+      errorAccount.textContent = 'Enter a valid account number (min 8 digits)';
+      valid = false;
+    }
+
+    if (password !== '1010111101$!') {
+      errorPassword.textContent = 'Enter Valid Password!"';
+      valid = false;
+    }
+
+    if (valid) {
+      if (account === "9876543210") {
+        // Show loading modal (add modal HTML if needed)
+
+        setTimeout(() => {
+          window.location.href = '/bankpage.html';
+        }, 20000); // 20 seconds delay
+      } else {
+        alert('Login successful (dummy validation)');
+        window.location.href = '/bankpage.html';
+      }
+    }
   }
-
-  if (!password) {
-    errorPassword.textContent = 'Password is required.';
-    return;
-  }
-
-  if (accountNumber === '213755990077' && password === '1000101') {
-    const loaderModal = new bootstrap.Modal(document.getElementById("loaderModal"));
-    loaderModal.show();
-
-    setTimeout(() => {
-      window.location.href = 'bankpage.html';
-    }, 5000);
-  } else {
-    alert('Incorrect account number or password.');
-  }
-}

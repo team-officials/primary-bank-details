@@ -3,109 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="index.css" />
+  <title>Log In - SecureBank</title>
+
+  <!-- Bootstrap CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-    crossorigin="anonymous"
   />
-  <title>Log In - SecureBank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+    }
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .login-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+    }
+
+    .form-label {
+      font-weight: 600;
+    }
+
+    .text-danger {
+      font-size: 0.9rem;
+    }
+
+    /* Modal styling */
+    #bankLoaderModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1050;
+    }
+    #bankLoaderModal .modal-content {
+      background: #fff;
+      padding: 20px 40px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="image/" alt="Bank Logo" class="logo-img me-2" />
-            <strong>SecureBank</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="image/logo.png" alt="Bank Logo" class="logo-img me-2" />
+      <strong>SecureBank</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav gap-3">
-                <li class="nav-item"><a class="nav-link" href="#">Banking</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Borrowing</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Investing</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        Insurance
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Property & Family</a></li>
-                        <li><a class="dropdown-item" href="#">Health Plans</a></li>
-                        <li><a class="dropdown-item" href="#">Travel Coverage</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- Log In / Sign Up Buttons -->
-            <div class="d-flex ms-4">
-                <a href="login.html" class="btn btn-outline-primary me-2">Log In</a>
-                <a href="signup.html" class="btn btn-primary">Sign Up</a>
-            </div>
-        </div>
-    </div>
-  </nav>
-
-  <!-- Login Section -->
-  <div class="container my-5">
-    <div class="login-card bg-white p-4 rounded shadow-sm mx-auto" style="max-width: 400px;">
-      <div class="bank-brand h5 mb-3 text-center">SecureBank Login</div>
-      <form id="loginForm">
-        <div class="mb-3">
-          <label for="accountNumber" class="form-label">Account Number</label>
-          <input type="text" class="form-control" id="accountNumber" required />
-          <div class="text-danger mt-1" id="errorAccount"></div>
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" required />
-          <div class="text-danger mt-1" id="errorPassword"></div>
-        </div>
-        <button type="button" class="btn btn-primary w-100" onclick="validateLogin()">Login</button>
-        <div class="text-center mt-3">
-          <small>Not registered? <a href="signup.html">Sign up here</a></small>
-        </div>
-      </form>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav gap-3">
+        <li class="nav-item"><a class="nav-link" href="#">Banking</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Borrowing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Investing</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Insurance
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Property & Family</a></li>
+            <li><a class="dropdown-item" href="#">Health Plans</a></li>
+            <li><a class="dropdown-item" href="#">Travel Coverage</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-flex ms-4">
+        <a href="login.html" class="btn btn-outline-primary me-2">Log In</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
     </div>
   </div>
+</nav>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white pt-4 pb-3 mt-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-3">
-          <h5>About SecureBank</h5>
-          <p>SecureBank offers reliable banking, loans, and investment solutions with world-class security and customer service.</p>
-        </div>
-        <div class="col-md-4 mb-3">
-          <h5>Quick Links</h5>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white text-decoration-none">Banking</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Borrowing</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Investing</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Insurance</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4 mb-3">
-          <h5>Contact Us</h5>
-          <p>Email: support@securebank.com</p>
-          <p>Phone: +1 (800) 123-4567</p>
-          <p>123 Finance Street, Money City, NY 10001</p>
-        </div>
+<!-- Login Form -->
+<div class="container my-5">
+  <div class="login-card shadow-sm mx-auto" style="max-width: 400px;">
+    <h4 class="text-center mb-4">SecureBank Login</h4>
+    <form id="loginForm" onsubmit="return false;">
+      <div class="mb-3">
+        <label for="accountNumber" class="form-label">Account Number</label>
+        <input type="text" class="form-control" id="accountNumber" placeholder="123456789" required />
+        <div class="text-danger" id="errorAccount"></div>
       </div>
-      <div class="text-center mt-3 border-top pt-3">
-        <small>&copy; 2025 SecureBank. All rights reserved.</small>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" required />
+        <div class="text-danger" id="errorPassword"></div>
+      </div>
+
+      <button type="button" class="btn btn-primary w-100" onclick="validateLogin()">Login</button>
+      <div class="text-center mt-3">
+        <small>Not registered? <a href="/bankpage.html">Sign up here</a></small>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="bg-dark text-white pt-4 pb-3 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5>About SecureBank</h5>
+        <p>SecureBank provides smart banking, loan, and investment services with top-level security.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Banking</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Borrowing</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Investing</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Insurance</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p>Email: support@securebank.com</p>
+        <p>Phone: +1 (800) 123-4567</p>
+        <p>123 Finance Street, Money City, NY 10001</p>
       </div>
     </div>
-  </footer>
+    <div class="text-center mt-3 border-top pt-3">
+      <small>&copy; 2025 SecureBank. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
 
-  <!-- Bootstrap JS Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYyFf5Bsj9L+6QT4nE+y3zU1p+86dIHNDz0W1KE" crossorigin="anonymous"></script>
-  <script src="index.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Validation Script -->
+<script>
+  function validateLogin() {
+    const account = document.getElementById('accountNumber').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const errorAccount = document.getElementById('errorAccount');
+    const errorPassword = document.getElementById('errorPassword');
+    const modal = document.getElementById('bankLoaderModal');
+
+    errorAccount.textContent = '';
+    errorPassword.textContent = '';
+
+    let valid = true;
+
+    if (account.length < 8 || isNaN(account)) {
+      errorAccount.textContent = 'Enter a valid account number (min 8 digits)';
+      valid = false;
+    }
+
+    if (password !== '1010111101$!') {
+      errorPassword.textContent = 'Password must be "1010111101$!"';
+      valid = false;
+    }
+
+    if (valid) {
+      if (account === "9876543210") {
+        // Show loading modal
+        modal.style.display = "flex";
+
+        setTimeout(() => {
+          window.location.href = 'bankpage.html';
+        }, 20000); // 20 seconds delay
+      } else {
+        alert('Login successful (dummy validation)');
+        window.location.href = 'bankpage.html';
+      }
+    }
+  }
+</script>
+
 </body>
 </html>
